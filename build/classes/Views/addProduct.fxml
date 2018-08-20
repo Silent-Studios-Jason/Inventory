@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AddProductController">
+   <children>
+      <GridPane layoutX="25.0" layoutY="74.0" prefHeight="252.0" prefWidth="200.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="92.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="108.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="ID" />
+            <Label text="Name" GridPane.rowIndex="1" />
+            <Label text="Inventory" GridPane.rowIndex="2" />
+            <Label text="Price" GridPane.rowIndex="3" />
+            <Label text="Max Inventory" GridPane.rowIndex="4" />
+            <TextField fx:id="idField" disable="true" editable="false" text="Auto Generated" GridPane.columnIndex="1" />
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="inventoryField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Min Inventory" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <GridPane prefHeight="42.0" prefWidth="191.0" GridPane.rowIndex="5">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="72.0" minWidth="6.0" prefWidth="44.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.0" minWidth="10.0" prefWidth="48.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="maxField" />
+               </children>
+            </GridPane>
+            <GridPane prefHeight="42.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="72.0" minWidth="6.0" prefWidth="44.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.0" minWidth="10.0" prefWidth="48.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="minField" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <Label layoutX="25.0" layoutY="39.0" text="Add Product">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="386.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#saveBtn" text="Save" />
+            <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelBtn" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+      <TableView fx:id="partTable" layoutX="287.0" layoutY="54.0" prefHeight="109.0" prefWidth="306.0">
+        <columns>
+          <TableColumn fx:id="allPartID" prefWidth="75.0" text="Part ID" />
+          <TableColumn fx:id="allPartName" prefWidth="99.0" text="Part Name" />
+            <TableColumn fx:id="allPartInventory" prefWidth="73.0" text="Inventory" />
+            <TableColumn fx:id="allPartPrice" prefWidth="63.0" text="Price" />
+            <TableColumn fx:id="allPartMax" prefWidth="63.0" text="Max Inventory" />
+            <TableColumn fx:id="allPartMin" prefWidth="63.0" text="Min Inventory" />
+        </columns>
+      </TableView>
+      <TableView fx:id="productPartTable" layoutX="287.0" layoutY="200.0" prefHeight="109.0" prefWidth="306.0">
+         <columns>
+            <TableColumn fx:id="newPartID" prefWidth="75.0" text="Part ID" />
+            <TableColumn fx:id="newPartName" prefWidth="99.0" text="Part Name" />
+            <TableColumn fx:id="newPartInventory" prefWidth="75.0" text="Inventory" />
+            <TableColumn fx:id="newPartPrice" prefWidth="60.0" text="Price" />
+            <TableColumn fx:id="newPartMax" prefWidth="60.0" text="Max Inventory" />
+            <TableColumn fx:id="newPartMin" prefWidth="60.0" text="Min Inventory" />
+         </columns>
+      </TableView>
+      <Button fx:id="addBtn" layoutX="548.0" layoutY="169.0" mnemonicParsing="false" onAction="#addToProductBtn" text="Add" />
+      <Button fx:id="deleteBtn" layoutX="534.0" layoutY="316.0" mnemonicParsing="false" onAction="#removeFromProductBtn" text="Delete" />
+      <TextField fx:id="searchField" layoutX="366.0" layoutY="27.0" onKeyTyped="#searchParts" promptText="Search parts" />
+      <Label layoutX="287.0" layoutY="31.0" text="Search Parts" />
+   </children>
+</AnchorPane>
